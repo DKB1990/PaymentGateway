@@ -1,6 +1,6 @@
 # Payment Gateway (CKO)
 To build a payment gateway, an API based application that will allow a merchant to offer a way for their shoppers to pay for their product.
-## Requirements :+1:
+## Requirements :memo:
 - [x] Process a payment through the payment gateway and receive either a successful or unsuccessful response.
 - [x] Retrieve the details of a previously made payment.
 ## Assumptions
@@ -110,7 +110,7 @@ CQRS is an architectural pattern that separates the models for reading and writi
 ```
 `Not Found (404)`: Payment with id could not be found
 
-## Future Improvements
+## Future Improvements :wrench:
 1. Implementing Event Based pattern for Acquiring Bank
 2. Connecting the logger with AppDynamics Or RedShift to make some ML models for future predictions
 3. Implementing Retry mechanism to the immediate failed Or TimedOut scenarios
