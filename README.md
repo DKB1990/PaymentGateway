@@ -14,10 +14,10 @@ To build a payment gateway, an API based application that will allow a merchant 
 ![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 
 ## Architecture
-CQRS is an architectural pattern that separates the models for reading and writing data. The basic idea is that you can divide a system's operations into two sharply separated categories:
+CQRS is an architectural pattern that separates the models for reading and writing data. The basic idea is that you can divide a system's operations into two sharply separated categories ([CQRS pattern MSDN](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)):
 
-Queries. These queries return a result and do not change the state of the system, and they are free of side effects.
-Commands. These commands change the state of a system.
+`Queries:` These queries return a result and do not change the state of the system, and they are free of side effects.<br/>
+`Commands:` These commands change the state of a system.
 
 ![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 
