@@ -1,10 +1,10 @@
 # Payment Gateway (CKO)
 To build a payment gateway, an API based application that will allow a merchant to offer a way for their shoppers to pay for their product.
 ## Requirements :+1:
-1. Process a payment through the payment gateway and receive either a successful or unsuccessful response.
-2. Retrieve the details of a previously made payment.
+- [x] Process a payment through the payment gateway and receive either a successful or unsuccessful response.
+- [x] Retrieve the details of a previously made payment.
 ## Assumptions
-1. Mock Acquiring bank should either **Approve** Or **Decline** the payment
+1. Mock Acquiring bank should either `Approve` Or `Decline` the payment
 2. The MerchantId is determined based on the API-Key passed into the request
 3. CVV codes could be 3 or 4 digits
 4. Card Numbers should be masked (8 digits should be masked) before Logging and fetching the previous Payments
@@ -21,21 +21,45 @@ Commands. These commands change the state of a system.
 
 ![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 
-
 ## Project Structure
+
+```code
+#--src
+  #--PaymentGateway.API
+      |--CQRS
+      |--Mappers
+      |--Controllers
+  #--PaymentGateway.Domain
+      |--Models
+      |--Validations
+      |--Enums
+      |--Services
+      |--Interfaces
+  #--PaymentGatewayInfrastructure
+      |--Repositories
+  #--PaymentGateway.SimulatorBank
+#--tests
+  #--PaymentGateway.API.UnitTests
+  #--PaymentGateway.API.IntegrationTests
+  #--PaymentGateway.Domain.UnitTests
+```
+
 ## Extra Mile Bonus Points :rocket:
-1. Used Lambda function for Mock Acquiring Bank (To keep it simple and concise).
+1. Used Lambda function (AWS - Amazon Web Services) for Mock Acquiring Bank (To keep it simple and concise).
 2. Unit Tesiting and Integration Testing using X-Unit
 3. Model validation with FluentValidation
 4. Implemented the API Document by adding Swagger UI
 5. Implementation of CQRS pattern for separation of operations (Read, Write/Update/Delete) 
 
 ## Build & Installation
+#### Pre-requisites
+1. .NET Core 6.0
+2. Nuget Package: `FluentValidation`, `X-Unit`, `Swashbuckle.AspNetCore`, `AutoMapper`, `MediatR`, `Newtonsoft.JSON`
 
-#### Sample Request/Response JSON format
-POST
+## Sample Request/Response JSON format
+`POST`: /Payment/
 ```JSON
-{
+"request": {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "amount": 999.99,
   "currencyCode": "AED",
@@ -50,10 +74,27 @@ POST
     "beneficiaryName": "Dheeraj Bansal"
   }
 }
+
+"response (201)": {
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "statusCode": "PENDING"
+}
 ```
-GET (200)
+`Response (400 - Bad Request)`
+* Invalid CardNumber
+* Invalid CVV
+* Invalid Expiry Date
+* Invalid CurrencyCode
+* Invalid Amount
+
+`GET`: /Payment/{id}
+
 ```JSON
-{
+"request": {
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
+
+"response (200)"{
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
   "amount": 999.99,
   "statusCode": "APPROVED | DECLINED | PENDING",
@@ -67,7 +108,7 @@ GET (200)
   "isPaymentDeclined": "true | false"
 }
 ```
-Not Found (404): Payment with id could not be found
+`Not Found (404)`: Payment with id could not be found
 
 ## Future Improvements
 1. Implementing Event Based pattern for Acquiring Bank
