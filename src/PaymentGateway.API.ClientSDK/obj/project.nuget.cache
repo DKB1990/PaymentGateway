@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iZ3YR5D3EAyGM9iuH38DAcnanYn7Vx+45GB51wTgENJSdjPKjow76Cc8sFA4V/fNoiQDZsF/FdG+iwm76CclDQ==",
+  "dgSpecHash": "YuthQRJik31xfdLLkD2H5JAaxr5kzDtljri8qyDSCG9dIKGzZS2Oh+6kZzRnoDG6gppDenQO+eenAfQSj3ZEtQ==",
   "success": true,
-  "projectFilePath": "/Users/dheerajbansal/Projects/PaymentGateway/src/PaymentGateway.API.ClientSDK/PaymentGateway.API.ClientSDK.csproj",
+  "projectFilePath": "/Users/dheerajbansal/Projects/PaymentGateway/PaymentGateway/src/PaymentGateway.API.ClientSDK/PaymentGateway.API.ClientSDK.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

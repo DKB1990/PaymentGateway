@@ -12,7 +12,7 @@ namespace PaymentGateway.Domain.Models
         public string CurrencyCode { get; set; }
         public PaymentStatusCode StatusCode { get; set; }
         public string Description { get; set; }
-        public PaymentDeclinedReasonCode DeclinedReasonCode { get; set; }
+        public PaymentDeclinedReasonCode? DeclinedReasonCode { get; set; }
         public DateTime RequestedDateTime => DateTime.UtcNow;
     }
 }

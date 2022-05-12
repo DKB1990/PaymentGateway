@@ -7,6 +7,6 @@ namespace PaymentGateway.SimulatorBank.Models
         public string PaymentId { get; set; }
         public string MerchantId { get; set; }
         public PaymentStatusCode StatusCode { get; set; }
-        public PaymentDeclinedReasonCode DeclinedReasonCode { get; set; }
+        public PaymentDeclinedReasonCode? DeclinedReasonCode { get; set; }
     }
 }

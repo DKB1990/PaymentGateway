@@ -16,9 +16,10 @@ namespace PaymentGateway.API.CQRS.Handlers
         private readonly IBankConnector _connector;
         private readonly IPaymentRepository _paymentRepository;
 
-        public MakePaymentEventDispatcherHandler(IMapper mapper, IPaymentRepository paymentRepository)
+        public MakePaymentEventDispatcherHandler(IMapper mapper, IPaymentRepository paymentRepository, IBankConnector connector)
         {
             _mapper = mapper;
+            _connector = connector;
             _paymentRepository = paymentRepository;
         }
 
@@ -41,18 +42,25 @@ namespace PaymentGateway.API.CQRS.Handlers
         /// <returns></returns>
         public async Task ProcessPayment(Payment payment)
         {
-            var bankRequest = _mapper.Map<BankPaymentRequest>(payment);
-            BankPaymentResponse response = await _connector.ProcessPaymentAsync(bankRequest);
-
-            if (response.StatusCode == PaymentStatusCode.Approved)
-                payment.StatusCode = PaymentStatusCode.Approved;
-            else
+            try
             {
-                payment.StatusCode = PaymentStatusCode.Declined;
-                payment.DeclinedReasonCode = response.DeclinedReasonCode;
-            }
+                var bankRequest = _mapper.Map<BankPaymentRequest>(payment);
+                BankPaymentResponse response = await _connector.ProcessPaymentAsync(bankRequest);
 
-            await _paymentRepository.UpdateAsync(payment);
+                if (response.StatusCode == PaymentStatusCode.Approved)
+                    payment.StatusCode = PaymentStatusCode.Approved;
+                else
+                {
+                    payment.StatusCode = PaymentStatusCode.Declined;
+                    payment.DeclinedReasonCode = response.DeclinedReasonCode;
+                }
+
+                await _paymentRepository.UpdateAsync(payment);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Mock Acquiring Bank Unavailable");
+            }
         }
     }
 }

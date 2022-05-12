@@ -1,5 +1,4 @@
 ﻿using System;
-using PaymentGateway.Domain.Enums;
 
 namespace PaymentGateway.API.Responses
 {
@@ -15,6 +14,6 @@ namespace PaymentGateway.API.Responses
         public string CardNumber { get; set; }
         public string BeneficiaryName { get; set; }
         public DateTime RequestedDateTime { get; set; }
-        public bool IsPaymentDeclined => StatusCode == PaymentStatusCode.Declined.ToString();
+        public bool IsPaymentDeclined => !string.IsNullOrWhiteSpace(DeclinedReasonCode);
     }
 }

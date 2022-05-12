@@ -17,7 +17,6 @@ namespace PaymentGateway.API.Mappers
                 $"{src.CardDetails.ExpiryDate.Month}-{src.CardDetails.ExpiryDate.Year}"))
               .ForMember(dest => dest.BeneficiaryName, opt => opt.MapFrom(src => src.CardDetails.BeneficiaryName))
               .ForMember(dest => dest.Amount, opt => opt.MapFrom(src => src.Amount))
-              .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.CurrencyCode))
-              .ForMember(dest => dest.IsPaymentDeclined, opt => opt.MapFrom(src => src.StatusCode == PaymentStatusCode.Declined));
+              .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.CurrencyCode));
     }
 }
