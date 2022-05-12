@@ -80,6 +80,30 @@ CQRS is an architectural pattern that separates the models for reading and writi
   "statusCode": "PENDING"
 }
 ```
+`POST - curl`
+
+```Curl
+curl -X 'POST' \
+  'https://localhost:5001/Payments' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "amount": 10,
+  "currencyCode": "AED",
+  "description": "Apple MAC book Order",
+  "cardDetails": {
+    "number": "1111222233334444",
+    "cvv": "123",
+    "expiryDate": {
+      "year": 2022,
+      "month": 3
+    },
+    "beneficiaryName": "Dheeraj Bansal"
+  }
+}'
+```
 `Response (400 - Bad Request)`
 * Invalid CardNumber
 * Invalid CVV
@@ -107,6 +131,13 @@ CQRS is an architectural pattern that separates the models for reading and writi
   "requestedDateTime": "2022-05-11T18:28:51.297Z",
   "isPaymentDeclined": "true | false"
 }
+```
+`GET - curl`
+
+```curl
+curl -X 'GET' \
+  'https://localhost:5001/Payments/3fa85f64-5717-4562-b3fc-2c963f66afa6' \
+  -H 'accept: application/json'
 ```
 `Not Found (404)`: Payment with id could not be found
 
