@@ -27,8 +27,10 @@ namespace PaymentGateway.Infrastructure.Repositories
         public async Task PostAsync(Payment payment)
         {
             var doesExistAlready = _cache.TryGetValue<Payment>(payment.Id, out var existingPayment);
-            if (!doesExistAlready)
-                _cache.Set(payment.Id, payment);
+            if (doesExistAlready)
+                throw new ArgumentException($"Duplicate Payment Id :: {payment.Id}");
+
+           await Task.Run(() =>_cache.Set(payment.Id, payment));
         }
 
         public async Task UpdateAsync(Payment payment)
@@ -36,7 +38,7 @@ namespace PaymentGateway.Infrastructure.Repositories
             if (!_cache.TryGetValue<Payment>(payment.Id, out var existingPayment))
                 throw new ArgumentException($"Payment NOT found with id {payment.Id}");
 
-            _cache.Set(payment.Id, payment);
+            await Task.Run(() => _cache.Set(payment.Id, payment));
         }
     }
 }
