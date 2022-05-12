@@ -58,7 +58,7 @@ CQRS is an architectural pattern that separates the models for reading and writi
 
 #### How to Run Project
 1. PaymentGateway.API is Set is Start-up project
-2. Run the Solution and Open Swagger UI: https://<projectURL>/docs/
+2. Run the Solution and Open Swagger UI: /<projectURL>/docs/
 3. Alternatively, goto the PaymentGateway.API project folder and run `Dotnet Run` in terminal within the same folder 
 3. Take the below sample JSON request formats to invoke the APIs
 4. You may also use POSTMAN (using CURL commands) to invoke APIs
