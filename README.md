@@ -46,9 +46,10 @@ CQRS is an architectural pattern that separates the models for reading and writi
 
 ## Extra Mile Bonus Points :rocket:
 1. Unit Tesiting and Integration Testing using X-Unit
-2. Model validation with FluentValidation
-3. Implemented the API Document by adding Swagger UI (`<url>/doc/`)
-4. Implementation of CQRS pattern for separation of operations (Read, Write/Update/Delete) 
+2. Masking Card Number before storing logs as per PCI-DSS policy
+3. Model validation with FluentValidation
+4. Implemented the API Document by adding Swagger UI (`<url>/doc/`)
+5. Implementation of CQRS pattern for separation of operations (Read, Write/Update/Delete) 
 
 ## Build & Installation
 #### Pre-requisites
@@ -56,7 +57,7 @@ CQRS is an architectural pattern that separates the models for reading and writi
 2. Nuget Package: `FluentValidation`, `X-Unit`, `Swashbuckle.AspNetCore`, `AutoMapper`, `MediatR`, `Newtonsoft.JSON`
 
 ## Sample Request/Response JSON format
-`POST`: /Payment/
+`HTTP/1.1` `POST`: /Payment/
 ```JSON
 "request": {
   "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -86,7 +87,7 @@ CQRS is an architectural pattern that separates the models for reading and writi
 * Invalid CurrencyCode
 * Invalid Amount
 
-`GET`: /Payment/{id}
+`HTTP/1.1` `GET`: /Payment/{id}
 
 ```JSON
 "request": {
@@ -111,9 +112,10 @@ CQRS is an architectural pattern that separates the models for reading and writi
 
 ## Future Improvements :wrench:
 1. Implementing Event Based pattern for Acquiring Bank
-2. Connecting the logger with AppDynamics Or RedShift to make some ML models for future predictions
-3. Implementing Retry mechanism to the immediate failed Or TimedOut scenarios
-4. Adding more validations (To make system PCI DSS complaint)
-5. Replacing In-Memory database with T-SQL database
+2. Adding more Unit-Test cases on Command, Query models
+3. Connecting the logger with AppDynamics Or RedShift to make some ML models for future predictions
+4. Implementing Retry mechanism to the immediate failed Or TimedOut scenarios
+5. Adding more validations (To make system PCI DSS complaint)
+6. Replacing In-Memory database with T-SQL database
 
 
