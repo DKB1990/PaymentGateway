@@ -45,11 +45,10 @@ CQRS is an architectural pattern that separates the models for reading and writi
 ```
 
 ## Extra Mile Bonus Points :rocket:
-1. Used Lambda function (AWS - Amazon Web Services) for Mock Acquiring Bank (To keep it simple and concise).
-2. Unit Tesiting and Integration Testing using X-Unit
-3. Model validation with FluentValidation
-4. Implemented the API Document by adding Swagger UI
-5. Implementation of CQRS pattern for separation of operations (Read, Write/Update/Delete) 
+1. Unit Tesiting and Integration Testing using X-Unit
+2. Model validation with FluentValidation
+3. Implemented the API Document by adding Swagger UI (`<url>/doc/`)
+4. Implementation of CQRS pattern for separation of operations (Read, Write/Update/Delete) 
 
 ## Build & Installation
 #### Pre-requisites
