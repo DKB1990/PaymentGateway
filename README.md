@@ -22,6 +22,7 @@ Command Query Segregation Responsilibity (CQRS) is an architectural pattern that
 <img alt="CQRS pattern" src= "https://github.com/DKB1990/PaymentGateway/blob/main/images/CQRS.png">
 
 ## Project Structure
+The inspiration to create this project structure came from various sources, `ThoughtWorks Blog`, [Structure a .NET solution](https://www.youtube.com/watch?v=YiVqwoFMieg), [Common Web application Architectures](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures). And Below is the final project structure/architecture.
 
 ```code
 #--src
@@ -54,15 +55,15 @@ Command Query Segregation Responsilibity (CQRS) is an architectural pattern that
 
 ## Build & Installation
 #### Pre-requisites
-1. .NET Core 6.0
+1. .NET Core 6.0, VS 2019 or above
 2. Nuget Package: `FluentValidation`, `X-Unit`, `Swashbuckle.AspNetCore`, `AutoMapper`, `MediatR`, `Newtonsoft.JSON`
 
 #### How to Run Project
-1. PaymentGateway.API is Set is Start-up project
-2. Run the Solution and Open Swagger UI: /<projectURL>/docs/
-3. Alternatively, goto the PaymentGateway.API project folder and run `Dotnet Run` in terminal within the same folder 
-3. Take the below sample JSON request formats to invoke the APIs
-4. You may also use POSTMAN (using CURL commands) to invoke APIs
+1. PaymentGateway.API is Set is Start-up project. You may open the solution in VS2019 or above and run the solution
+2. Alternatively, goto the PaymentGateway.API project folder and run `Dotnet Run` in terminal within the same folder 
+3. Then, Run the Solution and Open Swagger UI: /<projectURL>/docs/
+5. Take the below sample JSON request formats to invoke the APIs
+6. You may also use POSTMAN (using CURL commands) to invoke APIs
 
 ## Sample Request/Response JSON format
 `HTTP/1.1` `POST`: /Payment/
