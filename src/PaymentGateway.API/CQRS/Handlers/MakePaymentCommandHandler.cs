@@ -51,31 +51,45 @@ namespace PaymentGateway.API.CQRS.Commands
                     {
                         CVV = request.CardDetails.CVV,
                         Number = request.CardDetails.Number,
-                        ExpiryDate = new Domain.Models.ExpiryDate(2022, 2),
+                        ExpiryDate = new Domain.Models.ExpiryDate(request.CardDetails.ExpiryDate.Month, request.CardDetails.ExpiryDate.Year),
                         BeneficiaryName = request.CardDetails.BeneficiaryName,
                     }
                 };
 
-                //Validating the Model.
+                //Validating the Payment Model.
                 PaymentValidation paymentValidation = new PaymentValidation();
-                ValidationResult result= paymentValidation.Validate(payment);
-                if (!result.IsValid)
-                    throw new HttpRequestException(result?.Errors?.FirstOrDefault()?.ErrorMessage,
-                        new Exception(result?.Errors?.FirstOrDefault()?.ErrorMessage),
+                ValidationResult paymentValidationResult = paymentValidation.Validate(payment);
+                if (!paymentValidationResult.IsValid)
+                    throw new HttpRequestException(paymentValidationResult?.Errors?.FirstOrDefault()?.ErrorMessage,
+                        new Exception(paymentValidationResult?.Errors?.FirstOrDefault()?.ErrorMessage),
+                        HttpStatusCode.BadRequest);
+
+                //Validating the CardDetails Model.
+                CardValidation cardValidation = new CardValidation();
+                ValidationResult cardValidationResult = cardValidation.Validate(payment?.CardDetails);
+                if (!cardValidationResult.IsValid)
+                    throw new HttpRequestException(cardValidationResult?.Errors?.FirstOrDefault()?.ErrorMessage,
+                        new Exception(cardValidationResult?.Errors?.FirstOrDefault()?.ErrorMessage),
+                        HttpStatusCode.BadRequest);
+
+                //Validating the Expiry Date Model.
+                ExpiryDateValidation expDateValidation = new ExpiryDateValidation();
+                ValidationResult expDateValidationResult = expDateValidation.Validate(payment?.CardDetails?.ExpiryDate);
+                if (!expDateValidationResult.IsValid)
+                    throw new HttpRequestException(expDateValidationResult?.Errors?.FirstOrDefault()?.ErrorMessage,
+                        new Exception(expDateValidationResult?.Errors?.FirstOrDefault()?.ErrorMessage),
                         HttpStatusCode.BadRequest);
 
                 await _paymentRepository.PostAsync(payment);
                 paymentResponse = _mapper.Map<MakePaymentResponse>(payment);
 
                 await _dispatcher.DispatchAsync(new MakePaymentEvent(payment));
-
                 _logger.LogInformation($"Payment started processing to {request.MerchantId} by {CardMaskService.CardMask(request.CardDetails.Number)} for {request.Amount} {request.CurrencyCode}");
             }
             catch (Exception ex)
             {
                 // Validation messages from payment creation will be passed here
                 paymentResponse.StatusCode = $"Payment failed:: {ex.Message}";
-
                 _logger.LogError($"Payment failed to {request.MerchantId} by {CardMaskService.CardMask(request.CardDetails.Number)} for {request.Amount} {request.CurrencyCode}. {ex.Message}");
             }
 

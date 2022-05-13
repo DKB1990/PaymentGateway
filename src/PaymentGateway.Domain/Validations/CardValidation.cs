@@ -1,5 +1,4 @@
-﻿using System;
-using FluentValidation;
+﻿using FluentValidation;
 using PaymentGateway.Domain.Models;
 
 namespace PaymentGateway.Domain.Validations
