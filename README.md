@@ -58,7 +58,12 @@ The inspiration to create this project structure came from various sources, `Tho
 1. .NET Core 6.0, VS 2019 or above
 2. Nuget Package: `FluentValidation`, `X-Unit`, `Swashbuckle.AspNetCore`, `AutoMapper`, `MediatR`, `Newtonsoft.JSON`
 
-#### How to Run Project
+### Run Unit-Tests
+1. To run unit test cases, you may open the solution
+2. Go to Test Explorer and hit `Run All Tests`
+<img alt="Unit Test Results" src="https://github.com/DKB1990/PaymentGateway/blob/main/images/Test_Results.png"/>
+
+#### Run Project
 1. PaymentGateway.API is Set is Start-up project. You may open the solution in VS2019 or above and run the solution
 2. Alternatively, goto the PaymentGateway.API project folder and run `Dotnet Run` in terminal within the same folder 
 3. Then, Run the Solution and Open Swagger UI: /<projectURL>/docs/
