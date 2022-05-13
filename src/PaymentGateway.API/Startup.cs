@@ -29,9 +29,8 @@ namespace PaymentGateway.API
             services.AddAutoMapper(typeof(PaymentToGetPaymentResponse_Mapper));
             services.AddAutoMapper(typeof(PaymentToMakePaymentResponse_Mapper));
             services.AddControllers();
-            //services.AddSecurity();
-            //services.AddRateLimiting();
             services.AddAutoDocumentation();
+            //services.AddSecurity();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

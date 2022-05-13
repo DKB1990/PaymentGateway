@@ -15,6 +15,7 @@
 </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="Moq.AutoMock" Version="3.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,5 +26,6 @@
   <ItemGroup>
     <None Remove="Microsoft.AspNetCore.Mvc.Testing" />
     <None Remove="xunit" />
+    <None Remove="Moq.AutoMock" />
   </ItemGroup>
 </Project>

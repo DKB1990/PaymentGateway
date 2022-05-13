@@ -33,7 +33,9 @@ namespace PaymentGateway.API
         public static void AddSecurity(this IServiceCollection services)
         {
             services.AddAuthentication(ApiKeyAuthenticationSchemeOptions.Scheme)
-                .AddScheme<ApiKeyAuthenticationSchemeOptions, ApiKeyAuthenticationHandler>(ApiKeyAuthenticationSchemeOptions.Scheme, cfg => { });
+                .AddScheme<ApiKeyAuthenticationSchemeOptions, ApiKeyAuthenticationHandler>(ApiKeyAuthenticationSchemeOptions.Scheme, cfg =>
+                {
+                });
         }
 
         /// <summary>
@@ -68,7 +70,7 @@ namespace PaymentGateway.API
                     Type = SecuritySchemeType.ApiKey,
                     Name = HeaderNames.Authorization,
                     In = ParameterLocation.Header,
-                    Scheme = "ApiKeyScheme"
+                    Scheme = "ApiKeyScheme",
                 });
                 option.AddSecurityRequirement(new OpenApiSecurityRequirement
             {

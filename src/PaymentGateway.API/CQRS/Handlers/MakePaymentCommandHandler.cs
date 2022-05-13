@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using PaymentGateway.API.Commands;
@@ -10,6 +14,7 @@ using PaymentGateway.API.Responses;
 using PaymentGateway.Domain.Interfaces;
 using PaymentGateway.Domain.Models;
 using PaymentGateway.Domain.Services;
+using PaymentGateway.Domain.Validations;
 
 namespace PaymentGateway.API.CQRS.Commands
 {
@@ -50,6 +55,14 @@ namespace PaymentGateway.API.CQRS.Commands
                         BeneficiaryName = request.CardDetails.BeneficiaryName,
                     }
                 };
+
+                //Validating the Model.
+                PaymentValidation paymentValidation = new PaymentValidation();
+                ValidationResult result= paymentValidation.Validate(payment);
+                if (!result.IsValid)
+                    throw new HttpRequestException(result?.Errors?.FirstOrDefault()?.ErrorMessage,
+                        new Exception(result?.Errors?.FirstOrDefault()?.ErrorMessage),
+                        HttpStatusCode.BadRequest);
 
                 await _paymentRepository.PostAsync(payment);
                 paymentResponse = _mapper.Map<MakePaymentResponse>(payment);

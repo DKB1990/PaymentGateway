@@ -26,6 +26,7 @@ namespace PaymentGateway.API.Controllers
         [ProducesResponseType(400)]
         public async Task<IActionResult> MakePayment([FromBody] MakePaymentCommand command)
         {
+            string value = User.FindFirstValue("MerchantId");
             command.MerchantId = Guid.NewGuid();// ?? Guid.Parse(User.FindFirstValue("MerchantId"));
             var result = await _mediator.Send(command);
 

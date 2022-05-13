@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PaymentGateway.API.Queries;
 using PaymentGateway.API.Responses;
+using PaymentGateway.Infrastructure.Repositories;
 
 namespace PaymentGateway.API.Controllers
 {

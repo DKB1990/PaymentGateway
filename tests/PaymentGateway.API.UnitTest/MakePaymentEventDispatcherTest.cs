@@ -22,7 +22,7 @@ namespace PaymentGateway.API.UnitTest
 
         public MakePaymentEventDispatcherTest()
         {
-            _dispatcher = new MakePaymentEventDispatcherHandler( _mapperMock.Object, _repositoryMock.Object);
+            _dispatcher = new MakePaymentEventDispatcherHandler(_mapperMock.Object, _repositoryMock.Object, _adaptarMock.Object);
         }
 
         [TestMethod]
@@ -66,7 +66,7 @@ namespace PaymentGateway.API.UnitTest
                 StatusCode = PaymentStatusCode.Approved
             };
 
-            _adaptarMock.Setup(x => x.ProcessPaymentAsync(bankRequest)).ReturnsAsync(bankResponse);
+            var response = _adaptarMock.Setup(x => x.ProcessPaymentAsync(bankRequest)).ReturnsAsync(bankResponse);
 
             // Act
             Action action = () => _dispatcher.DispatchAsync(new MakePaymentEvent(payment));

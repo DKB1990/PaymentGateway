@@ -1,0 +1,12 @@
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/bin/Debug/net6.0/PaymentGateway.API.ClientSDK.deps.json
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/bin/Debug/net6.0/PaymentGateway.API.ClientSDK.dll
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/bin/Debug/net6.0/PaymentGateway.API.ClientSDK.pdb
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/PaymentGateway.API.ClientSDK.csproj.AssemblyReference.cache
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/PaymentGateway.API.ClientSDK.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/PaymentGateway.API.ClientSDK.AssemblyInfoInputs.cache
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/PaymentGateway.API.ClientSDK.AssemblyInfo.cs
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/PaymentGateway.API.ClientSDK.csproj.CoreCompileInputs.cache
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/PaymentGateway.API.ClientSDK.dll
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/refint/PaymentGateway.API.ClientSDK.dll
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/PaymentGateway.API.ClientSDK.pdb
+/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/Debug/net6.0/ref/PaymentGateway.API.ClientSDK.dll

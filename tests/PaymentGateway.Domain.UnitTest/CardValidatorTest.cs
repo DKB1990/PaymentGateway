@@ -18,11 +18,11 @@ namespace PaymentGateway.Domain.UnitTest
             CVV = "123",
             Number = "1234567812345678",
             BeneficiaryName = "Dheeraj Bansal",
-            ExpiryDate = new ExpiryDate(2022, 2),
+            ExpiryDate = new ExpiryDate(02, 2022),
         };
 
         [TestMethod]
-        public void Should_Return_Error_For_Invalid_CVV()
+        public void Is_Invalid_CVV()
         {
             //Arrange
             cardModel.CVV = "12345";
@@ -45,7 +45,7 @@ namespace PaymentGateway.Domain.UnitTest
         }
 
         [TestMethod]
-        public void Should_Return_Error_For_Invalid_CardNumber()
+        public void Is_Invalid_CardNumber()
         {
             //Arrange
             cardModel.Number = "12345454";

@@ -15,7 +15,7 @@ namespace PaymentGateway.Domain.UnitTest
         public void Should_Return_Error_For_Invalid_ExpiryDate()
         {
             //Arrange
-            ExpiryDate date = new ExpiryDate(2021, 10);
+            ExpiryDate date = new ExpiryDate(10, 2021);
             //Act
             ValidationResult result = _validator.Validate(date);
             //Assert
@@ -26,7 +26,7 @@ namespace PaymentGateway.Domain.UnitTest
         public void Should_Return_Success_For_Valid_ExpiryDate()
         {
             //Arrange
-            ExpiryDate date = new ExpiryDate(2022, 01);
+            ExpiryDate date = new ExpiryDate(01, 2023);
 
             //Act
             ValidationResult result = _validator.Validate(date);

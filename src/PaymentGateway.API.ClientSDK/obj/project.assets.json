@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/dheerajbansal/Projects/PaymentGateway/PaymentGateway/src/PaymentGateway.API.ClientSDK/PaymentGateway.API.ClientSDK.csproj",
+      "projectUniqueName": "/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/PaymentGateway.API.ClientSDK.csproj",
       "projectName": "PaymentGateway.API.ClientSDK",
-      "projectPath": "/Users/dheerajbansal/Projects/PaymentGateway/PaymentGateway/src/PaymentGateway.API.ClientSDK/PaymentGateway.API.ClientSDK.csproj",
+      "projectPath": "/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/PaymentGateway.API.ClientSDK.csproj",
       "packagesPath": "/Users/dheerajbansal/.nuget/packages/",
-      "outputPath": "/Users/dheerajbansal/Projects/PaymentGateway/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/",
+      "outputPath": "/Users/dheerajbansal/Projects/untitled/PaymentGateway/src/PaymentGateway.API.ClientSDK/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/dheerajbansal/.nuget/NuGet/NuGet.Config"
